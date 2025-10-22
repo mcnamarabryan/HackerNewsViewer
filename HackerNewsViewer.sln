@@ -5,6 +5,29 @@ VisualStudioVersion = 17.14.36603.0 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerNewsViewer", "HackerNewsViewer\HackerNewsViewer.csproj", "{806A0198-0182-4E19-9C1A-2301FB396E1A}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "hn-angular", "hn-angular\", "{AF03C2B3-D67B-B940-C2A4-A757C7478C13}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57879"
+		Debug.AspNetCompiler.PhysicalPath = "hn-angular\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57879\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57879"
+		Release.AspNetCompiler.PhysicalPath = "hn-angular\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57879\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57879"
+		SlnRelativePath = "hn-angular\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerNewsViewer.Tests", "HackerNewsViewer.Tests\HackerNewsViewer.Tests.csproj", "{6FD82ED5-8716-4281-ACCE-BD37507122EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +38,14 @@ Global
 		{806A0198-0182-4E19-9C1A-2301FB396E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{806A0198-0182-4E19-9C1A-2301FB396E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{806A0198-0182-4E19-9C1A-2301FB396E1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF03C2B3-D67B-B940-C2A4-A757C7478C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF03C2B3-D67B-B940-C2A4-A757C7478C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF03C2B3-D67B-B940-C2A4-A757C7478C13}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF03C2B3-D67B-B940-C2A4-A757C7478C13}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6FD82ED5-8716-4281-ACCE-BD37507122EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD82ED5-8716-4281-ACCE-BD37507122EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD82ED5-8716-4281-ACCE-BD37507122EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD82ED5-8716-4281-ACCE-BD37507122EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
