@@ -1,4 +1,4 @@
-# HN Viewer
+# BKM Hacker News Viewer
 
 A simple application to view the newest Hacker News stories, built with an Angular frontend and a C# .NET Core backend API.
 
@@ -14,8 +14,8 @@ A simple application to view the newest Hacker News stories, built with an Angul
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Node.js 18+](https://nodejs.org/) (includes npm)
 - [Angular CLI 17+](https://angular.dev/) (install globally via `npm install -g @angular/cli`)
+- [Visual Studio 2022+](https://visualstudio.microsoft.com/) (recommended for easier HTTPS setup)
 
-- 
 ## Setup and Build
 1. Clone the repository:
    ```
@@ -33,21 +33,41 @@ A simple application to view the newest Hacker News stories, built with an Angul
    - Install dependencies: `npm install`
 
 ## Running the Application
-1. **Run the Backend**:
-   - From the `HackerNewsViewer` directory: `dotnet run`
-   - The API will start on `https://localhost:7009` (confirm in console output).
-   - Test the API via Swagger: `https://localhost:7009/swagger/index.html`
+The backend API uses HTTPS in development for security. If using the CLI (`dotnet run`), ensure the .NET development certificate is installed and trusted (see below). Alternatively, open the solution in Visual Studio for automatic HTTPS handling.
+
+### Option 1: Run via Visual Studio (Recommended for HTTPS)
+1. Open the solution file (`HackerNewsViewer.sln`) in Visual Studio.
+2. Set `HackerNewsViewer` as the startup project (right-click > Set as Startup Project).
+3. Press F5 or click Run (IIS Express) to start the backend with HTTPS.
+   - The API will launch on `https://localhost:<port>` (check Output window or browser launch).
+   - Swagger: `https://localhost:<port>/swagger/index.html`
+
+4. In a separate terminal, run the frontend from `hn-angular`: `ng serve --proxy-config proxy.conf.json`
+5. Open `http://localhost:4200` in your browser.
+
+### Option 2: Run via CLI (dotnet run)
+1. Install and trust the .NET dev certificate (required for HTTPS):
+   ```
+   dotnet dev-certs https --trust
+   ```
+   - On Windows/macOS, this installs a self-signed cert. Follow any prompts to trust it.
+   - If issues arise, see [Microsoft docs on enforcing HTTPS](https://learn.microsoft.com/en-us/aspnet/core/security/enforcing-ssl).
+
+2. From the `HackerNewsViewer` directory: `dotnet run`
+   - The API should start on `https://localhost:7009` (or check console for URLs).
+   - If it falls back to HTTP, verify the cert with `dotnet dev-certs https --check` and ensure `launchSettings.json` has an HTTPS profile.
+   - Test via Swagger: `https://localhost:7009/swagger/index.html`
    - Example endpoint: `https://localhost:7009/api/stories?page=1&pageSize=20`
 
-2. **Run the Frontend**:
-   - From the `hn-angular` directory: `ng serve --proxy-config proxy.conf.json`
-   - The app will start on `http://localhost:4200`.
-   - Open `http://localhost:4200` in your browser to view the app.
-   - The proxy config forwards `/api` calls to the backend (ensure backend is running).
+3. In a separate terminal, run the frontend from `hn-angular`: `ng serve --proxy-config proxy.conf.json`
+4. Open `http://localhost:4200` in your browser.
+
+**Note on HTTPS Issues**: If `dotnet run` only runs on HTTP, double-check the dev cert installation. Visual Studio handles this automatically via IIS Express.
 
 ## Running Tests
 1. **Backend Tests**:
-   - From the `HackerNewsViewer` directory: `dotnet test`
+   - From the solution HackerNewsViewer.Tests directory: `dotnet test`
+   - Or in Visual Studio: Test > Test Explorer > Run All.
    - Includes unit tests for services/controllers and integration tests.
 
 2. **Frontend Tests**:
