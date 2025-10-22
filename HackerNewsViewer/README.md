@@ -15,6 +15,7 @@ A simple application to view the newest Hacker News stories, built with an Angul
 - [Node.js 18+](https://nodejs.org/) (includes npm)
 - [Angular CLI 17+](https://angular.dev/) (install globally via `npm install -g @angular/cli`)
 
+- 
 ## Setup and Build
 1. Clone the repository:
    ```
